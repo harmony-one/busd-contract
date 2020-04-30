@@ -20,6 +20,7 @@ It is a fork of the following repository: https://github.com/paxosglobal/busd-co
 ## Added Files
 * `.env` defines accounts necessary to sign and deploy the contract, you can also use these in `migrations/2_deploy_contracts.js` if you like.
 * `config.js` exposes ENV variables to the NodeJS server (details below)
+* `/server/*` server example for interacting with contract using Harmony SDK
 
 ## Changes to truffle-config.js
 All original code is commented. New network configurations are provided matching the scripts in `package.json` for deployments.

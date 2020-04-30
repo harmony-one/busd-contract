@@ -1,3 +1,39 @@
+# Harmony Protocol Deployment of Binance USD (BUSD)
+This repository defines packages and files to support a deployment of BUSD on Harmony Protocol.
+
+It is a fork of the following repository: https://github.com/paxosglobal/busd-contract
+
+## Added Packages
+```
+"@harmony-js/core": "^0.1.36",
+"dotenv": "^8.2.0",
+"express": "^4.17.1",
+"tslib": "^1.10.0",
+```
+## Added Scripts
+```
+"start": "node server/app.js",
+"deploy:local": "truffle migrate --reset --network local",
+"deploy:testnet": "truffle migrate --reset --network testnet",
+"deploy:mainnet": "truffle migrate --reset --network mainnet"
+```
+## Added Files
+* `.env` defines accounts necessary to sign and deploy the contract, you can also use these in `migrations/2_deploy_contracts.js` if you like.
+* `config.js` exposes ENV variables to the NodeJS server (details below)
+
+## Changes to truffle-config.js
+All original code is commented. New network configurations are provided matching the scripts in `package.json` for deployments.
+
+# The Server
+Attached is a NodeJS server where you can interact with the deployed contracts.
+This is intended to demonstrate interactions with smart contracts using `@harmony-js/core`.
+There are also examples of native ONE token transfers.
+
+The `server` itself is not secure or ready for production. Please take care when integrating into your production environments.
+
+# Original README.md
+Below is the original documentation of the BUSD contract repo found here: https://github.com/paxosglobal/busd-contract
+
 # Binance USD (BUSD)
 Paxos-issued USD-collateralized ERC20 stablecoin public smart contract repository.
 

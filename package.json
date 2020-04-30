@@ -16,7 +16,13 @@
     "ganache": "ganache-cli",
     "migrate": "truffle migrate",
     "solium": "solium -d contracts/ --fix",
-    "test": "truffle test"
+    "test": "truffle test",
+
+
+    "start": "node server/app.js",
+    "deploy:local": "truffle migrate --reset --network local",
+    "deploy:testnet": "truffle migrate --reset --network testnet",
+    "deploy:mainnet": "truffle migrate --reset --network mainnet"
   },
   "repository": {
     "type": "git",
@@ -30,6 +36,11 @@
   "homepage": "https://github.com/paxosglobal/busd-contracts#readme",
   "dependencies": {},
   "devDependencies": {
+    "@harmony-js/core": "^0.1.36",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "tslib": "^1.10.0",
+    
     "eth-sig-util": "^2.1.0",
     "ganache-cli": "^6.1.2",
     "openzeppelin-test-helpers": "^0.1.1",

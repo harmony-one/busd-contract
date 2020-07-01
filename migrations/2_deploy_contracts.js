@@ -9,4 +9,5 @@ module.exports = async function(deployer) {
   const proxiedBUSD = await BUSD.at(proxy.address);
   await proxy.changeAdmin("0xf0b1eef88956b0a307fa87b5f5671aad6a5d330f");
   await proxiedBUSD.initialize();
+  await proxiedBUSD.initializeDomainSeparator();
 };

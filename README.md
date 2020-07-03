@@ -3,6 +3,10 @@ This repository defines packages and files to support a deployment of BUSD on Ha
 
 It is a fork of the following repository: https://github.com/paxosglobal/busd-contract
 
+
+NOTE:scripts under busd-contract/server are just example/test scripts showing how to write javascripts to interact with BUSD smartcontract using harmony SDK.
+They are not for real production
+
 ## Added Packages
 ```
 "@harmony-js/core": "^0.1.36",

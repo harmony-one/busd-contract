@@ -5,7 +5,7 @@ It is a fork of the following repository: https://github.com/paxosglobal/busd-co
 
 
 NOTE:scripts under busd-contract/server are just example/test scripts showing how to write javascripts to interact with BUSD smartcontract using harmony SDK.
-They are not for real production
+They are not production-ready.
 
 ## Added Packages
 ```

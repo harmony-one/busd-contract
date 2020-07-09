@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const {
 	getContractInstance,
 	txContractMethod,
@@ -38,6 +39,7 @@ const sender = hmy.wallet.addByMnemonic(mnemonic)
 Express
 ********************************/
 const app = express()
+app.use(cors())
 
 /********************************
 BUSD Method (call)

@@ -1,10 +1,11 @@
-
 const config = require('../config')
-const { ENV, url, net, port, privateKey } = config
+const { chain } = config
 const gasLimit = '1000000'
 const gasPrice = '1000000000'
 
-exports.validateArgs = (artifact, method, args) => {
+oneToHexAddress = (hmy, address) => hmy.crypto.getAddress(address).basicHex
+
+exports.validateArgs = (hmy, artifact, method, args) => {
     const argTypes = Object.keys(artifact.devdoc.methods).find((m) => m.indexOf(method) === 0)
 		.split('(')[1].split(')')[0].split(',')
 
@@ -22,17 +23,18 @@ exports.validateArgs = (artifact, method, args) => {
     return args
 }
 
-exports.oneToHexAddress = (hmy, address) => hmy.crypto.getAddress(address).basicHex
 exports.getContractInstance = (hmy, artifact) => {
-    // console.log(net)
-    // console.log(artifact.networks[net].address)
+    console.log(chain)
+    console.log(artifact.networks[chain].address)
     const contract = hmy.contracts.createContract(
-        artifact.abi, artifact.networks[net] ? artifact.networks[net].address : config[artifact.contractName]
+        artifact.abi, artifact.networks[chain].address
     )
     return contract
 }
 
-exports.callContractMethod = (contract, method, ...args) => contract.methods[method](...args).call({ gasLimit, gasPrice })
+exports.callContractMethod = (contract, method, ...args) => {
+    contract.methods[method](...args).call({ gasLimit, gasPrice })
+}
 
 exports.txContractMethod = (contract, method, ...args) => new Promise((resolve, reject) => {
     let hash, receipt, error //assigned in listener
